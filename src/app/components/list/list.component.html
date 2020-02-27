@@ -15,7 +15,7 @@
 
     <td>{{i + 1}}</td>
     <td><a routerLink="/books/{{book.id}}">{{book.name}}</a></td>
-    <td><button type="button" (click)="deleteBook(i+1)">Delete</button></td>
+    <td><button type="button" (click)="deleteBook(book.id)">Delete</button></td>
   </tr>
   </tbody>
 </table>

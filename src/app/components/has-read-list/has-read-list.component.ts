@@ -13,11 +13,13 @@ import {Router} from '@angular/router';
 export class HasReadListComponent implements OnInit {
   bookList: IBook[] = [];
   book: IBook;
-  bookForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    read: new FormControl()
-  });
+  // bookForm: FormGroup = new FormGroup({
+  //   id: new FormControl(),
+  //   name: new FormControl(),
+  //   read: new FormControl()
+  // });
+  bookForm: FormGroup;
+
   constructor(private bookService: BookService, private router: Router) {
   }
 
@@ -29,12 +31,30 @@ export class HasReadListComponent implements OnInit {
   }
 
   edit(id: number) {
-    const value = this.bookForm.value;
     this.bookList[id].read = false;
+    const value = this.bookForm.value;
     this.bookService.updateBook(value).subscribe(
       next => this.router.navigateByUrl('books/hasread'),
       error => console.log(error)
     );
   }
+
+  odit(id: boolean) {
+    const {value} = this.bookForm.value;
+    if (id === true) {
+      this.book.read = true;
+    } else {
+      this.book.read = false;
+    }
+    const data = {
+      ...this.book,
+      ...value,
+    };
+    this.bookService.updateBook(data).subscribe(
+      next => this.router.navigateByUrl('/books/hasread'),
+      error => console.log(error)
+    );
+  }
+
 
 }
