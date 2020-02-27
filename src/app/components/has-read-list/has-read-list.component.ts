@@ -30,6 +30,7 @@ export class HasReadListComponent implements OnInit {
 
   edit(id: number) {
     const value = this.bookForm.value;
+    this.bookList[id].read = false;
     this.bookService.updateBook(value).subscribe(
       next => this.router.navigateByUrl('books/hasread'),
       error => console.log(error)
