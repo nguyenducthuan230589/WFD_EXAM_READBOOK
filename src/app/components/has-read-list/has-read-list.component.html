@@ -1,0 +1,18 @@
+<h1 class="table text-center">Danh sách đọc</h1>
+<table class="table table-bordered table-hover table-striped">
+  <thead class="bg-primary text-light">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let item of bookList">
+  <tr *ngIf="item.read == true">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td> <button class="btn btn-primary" (click)="edit(item.id)">Đọc</button></td>
+  </tr>
+
+  </tbody>
+</table>

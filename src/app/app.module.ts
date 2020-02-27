@@ -1,14 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+import { CreateComponent } from './components/create/create.component';
+import { ListComponent } from './components/list/list.component';
+import {AppRoutingModule} from './app-routing/app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReadListComponent } from './components/read-list/read-list.component';
+import { HasReadListComponent } from './components/has-read-list/has-read-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateComponent,
+    ListComponent,
+    ReadListComponent,
+    HasReadListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

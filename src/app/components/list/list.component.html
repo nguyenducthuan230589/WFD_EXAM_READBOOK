@@ -1,0 +1,22 @@
+<h3>List book</h3>
+<a routerLink="read">List Read Book</a> <br>
+<a routerLink="hasread">List Has Read Book</a> <br>
+<a routerLink="create">Add new a book</a><br>
+<table class="table table-bordered table-hover table-striped">
+  <thead class="bg-primary text-light">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of bookList;index as i">
+
+    <td>{{i + 1}}</td>
+    <td><a routerLink="/books/{{book.id}}">{{book.name}}</a></td>
+    <td><button type="button" (click)="deleteBook(i+1)">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
+
