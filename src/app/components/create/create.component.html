@@ -1,11 +1,10 @@
+<form class="form-group" [formGroup]="formBook" (ngSubmit)="add()">
+  <div>
+    <input placeholder="Name" type="text"
+           formControlName="name"
+           name="name">
+  </div>
+  <button type="submit">Add a new Book</button>
+</form>
 
 <a routerLink="/books">Back to the list</a>
-  <form class="form-group" [formGroup]="formBook" (ngSubmit)="add()">
-    <div>
-      <input placeholder="Name" type="text"
-             formControlName="name"
-             name="name">
-    </div>
-    <button type="submit" >Add a new Book</button>
-  </form>
-

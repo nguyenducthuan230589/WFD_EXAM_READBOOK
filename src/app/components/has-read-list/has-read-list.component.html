@@ -7,11 +7,11 @@
     <th>Action</th>
   </tr>
   </thead>
-  <tbody *ngFor="let item of bookList">
-  <tr *ngIf="item.read == true">
-    <td>{{item.id}}</td>
-    <td>{{item.name}}</td>
-    <td> <button class="btn btn-primary" (click)="edit(item.id)">Đọc</button></td>
+  <tbody *ngFor="let book of bookList">
+  <tr *ngIf="book.read == true">
+    <td>{{book.id +1}}</td>
+    <td>{{book.name}}</td>
+    <td> <button class="btn btn-primary" (click)="edit(book.id)">Đọc</button></td>
   </tr>
 
   </tbody>

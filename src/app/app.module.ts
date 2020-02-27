@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReadListComponent } from './components/read-list/read-list.component';
 import { HasReadListComponent } from './components/has-read-list/has-read-list.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HasReadListComponent } from './components/has-read-list/has-read-list.c
     CreateComponent,
     ListComponent,
     ReadListComponent,
-    HasReadListComponent
+    HasReadListComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
