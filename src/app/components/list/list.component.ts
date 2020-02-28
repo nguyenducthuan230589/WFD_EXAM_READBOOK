@@ -22,10 +22,10 @@ export class ListComponent implements OnInit {
     );
   }
 
-  deleteBook(index: number) {
-    this.bookService.deleteBook(index).subscribe(
-      () => {
-        this.router.navigateByUrl('/books');
-      });
-  }
+  // deleteBook(book: number) {
+  //   this.bookService.deleteBook(book).subscribe(
+  //     next => {
+  //       this.router.navigateByUrl('/books');
+  //     });
+  // }
 }

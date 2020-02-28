@@ -10,12 +10,14 @@
     <th>Action</th>
   </tr>
   </thead>
-  <tbody>
-  <tr *ngFor="let book of bookList;index as i">
+  <tbody >
+  <tr *ngFor="let book of bookList;index as i" >
 
-    <td>{{i + 1}}</td>
-    <td><a routerLink="/books/{{book.id}}">{{book.name}}</a></td>
-    <td><button type="button" (click)="deleteBook(book.id)">Delete</button></td>
+    <td >{{i + 1}}</td>
+    <td ><a routerLink="/books/{{book.id}}">{{book.name}}</a></td>
+    <td>
+      <input type="checkbox">
+    </td>
   </tr>
   </tbody>
 </table>
