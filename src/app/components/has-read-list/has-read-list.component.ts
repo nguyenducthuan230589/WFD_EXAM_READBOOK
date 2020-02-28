@@ -30,28 +30,21 @@ export class HasReadListComponent implements OnInit {
     );
   }
 
-  edit(id: number) {
-    this.bookList[id].read = false;
-    const value = this.bookForm.value;
-    this.bookService.updateBook(value).subscribe(
-      next => this.router.navigateByUrl('books/hasread'),
-      error => console.log(error)
-    );
-  }
+  // edit(id: number) {
+  //   this.bookList[id].read = false;
+  //   const value = this.bookForm.value;
+  //   this.bookService.updateBook(value).subscribe(
+  //     next => this.router.navigateByUrl('books/hasread'),
+  //     error => console.log(error)
+  //   );
+  // }
 
-  odit(id: boolean) {
-    const {value} = this.bookForm.value;
-    if (id === true) {
-      this.book.read = true;
-    } else {
-      this.book.read = false;
-    }
-    const data = {
-      ...this.book,
-      ...value,
-    };
-    this.bookService.updateBook(data).subscribe(
-      next => this.router.navigateByUrl('/books/hasread'),
+  odit(book: any) {
+    this.bookService.updateBooks(book.id, book.name, 'false').subscribe(
+      next => {
+        this.router.navigateByUrl('books/hasread');
+        this.ngOnInit();
+      },
       error => console.log(error)
     );
   }

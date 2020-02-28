@@ -1,4 +1,4 @@
-<h1 class="table text-center">Danh sách đọc</h1>
+<h1 class="table text-center">Danh sách đã đọc</h1>
 <table class="table table-bordered table-hover table-striped">
   <thead class="bg-primary text-light">
   <tr>
@@ -11,7 +11,7 @@
   <tr *ngIf="book.read == true">
     <td>{{book.id +1}}</td>
     <td>{{book.name}}</td>
-    <td> <button class="btn btn-primary" (click)="edit(book.id)">Đọc</button></td>
+    <td> <button class="btn btn-primary" (click)="odit(book)">Đọc</button></td>
   </tr>
 
   </tbody>

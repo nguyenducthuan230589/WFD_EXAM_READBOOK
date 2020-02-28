@@ -21,8 +21,13 @@ export class BookService {
     return this.http.get<IBook>(Location.joinWithSlash(this.API_URL, id + ''));
   }
 
-  updateBook(book: IBook ): Observable<IBook> {
+  updateBook(book: IBook): Observable<IBook> {
     return this.http.put<IBook>(Location.joinWithSlash(this.API_URL, book.id + ''), book);
+  }
+
+  updateBooks(id: number, name: string, read: string): Observable<IBook> {
+    const book = {id, name, read};
+    return this.http.put<IBook>(this.API_URL, book);
   }
 
   createBook(book: IBook): Observable<IBook> {

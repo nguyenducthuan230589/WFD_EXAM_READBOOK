@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {IBook} from '../../interface/ibook';
-import {Subscription} from 'rxjs';
-import {FormControl, FormGroup} from '@angular/forms';
+
 import {BookService} from '../../services/book.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {invalid} from '@angular/compiler/src/render3/view/util';
+
 
 @Component({
   selector: 'app-read-list',
@@ -15,11 +14,6 @@ export class ReadListComponent implements OnInit {
 
   bookList: IBook[] = [];
   book: IBook;
-  bookForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    read: new FormControl()
-  });
 
   constructor(private bookService: BookService, private router: Router) {
   }
@@ -30,11 +24,12 @@ export class ReadListComponent implements OnInit {
       error => console.log(error));
   }
 
-  edit(id: number) {
-    const value = this.bookForm.value;
-    this.bookList[id].read = true;
-    this.bookService.updateBook(value).subscribe(
-      next => this.router.navigateByUrl('books/read'),
+  odit(book: any) {
+    this.bookService.updateBooks(book.id, book.name, 'true').subscribe(
+      next => {
+        this.router.navigateByUrl('books/read');
+        this.ngOnInit();
+      },
       error => console.log(error)
     );
   }
